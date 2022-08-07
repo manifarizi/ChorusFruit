@@ -107,4 +107,4 @@ writing a text with color:
 ```python
 self.write(0, 0, 'This text is RED', 'fore_red')
 ```
-##and so much More in the Future
+## and so much More in the Future
