@@ -4,7 +4,8 @@ hi my name is mani, and i want to show you what you can do with 'ChorusFruit' py
 # Tutorial:
 ### Installation
 ****
-you  can just `pip install` it
+first `pip install --upgrade py-getch` and then
+you can just `pip install --upgrade ChorusFruit`
 or for source code You can download source code from [my Github](https:\\github.com\mani_farizi)
 ### Using it
 ****
