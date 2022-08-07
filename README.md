@@ -103,8 +103,16 @@ Clearing Screen
 ```python
 scr.clear()
 ```
-writing a text with color:
+Writing a text with color
 ```python
 self.write(0, 0, 'This text is RED', 'fore_red')
+```
+getting a Character
+```python
+ch = self.getch()
+```
+getting a Character without echo
+```python
+ch = self.getch(no_echo=True)
 ```
 ## and so much More in the Future
