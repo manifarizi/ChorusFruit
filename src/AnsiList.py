@@ -1,0 +1,46 @@
+style_styles = ["default", "bold", "dark", "italic", "underline", "invert", "blink", "underline2", "strikethrough", "default", "codemark"]
+style_default = "\x1b[0m"
+style_bold = "\x1b[1m"
+style_dark = "\x1b[3m"
+style_italic = "\x1b[3m"
+style_underline = "\x1b[4m"
+style_invert = "\x1b[7m"
+style_blink = "\x1b[5m"
+style_underline2 = "\x1b[21m"
+style_strikethrough = "\x1b[9m"
+style_codemark = "\x1b]1337;SetMark\x07"
+fore_styles = ["black", "red", "green", "yellow", "blue", "purple", "aqua" ,"gray", "lightred", "lightgreen", "lightyellow", "lightblue", "lightpurple", "lightaqua"]
+fore_black = "\x1b[30m"
+fore_red = "\x1b[31m"
+fore_green = "\x1b[32m"
+fore_yellow = "\x1b[33m"
+fore_blue = "\x1b[34m"
+fore_purple = "\x1b[35m"
+fore_aqua = "\x1b[36m"
+fore_gray = "\x1b[90m"
+fore_lightred = "\x1b[91m"
+fore_lightgreen = "\x1b[92m"
+fore_lightyellow = "\x1b[93m"
+fore_lightblue = "\x1b[94m"
+fore_lightpurple = "\x1b[95m"
+fore_lightaqua = "\x1b[96m"
+back_styles = ["black", "red", "green", "yellow", "blue", "purple", "aqua" ,"gray", "lightred", "lightgreen", "lightyellow", "lightblue", "lightpurple", "lightaqua"]
+back_black = "\x1b[40m"
+back_red = "\x1b[41m"
+back_green = "\x1b[42m"
+back_yellow = "\x1b[43m"
+back_blue = "\x1b[44m"
+back_purple = "\x1b[45m"
+back_aqua = "\x1b[46m"
+back_gray = "\x1b[100m"
+back_lightred = "\x1b[101m"
+back_lightgreen = "\x1b[102m"
+back_lightyellow = "\x1b[103m"
+back_lightblue = "\x1b[104m"
+back_lightpurple = "\x1b[105m"
+back_lightaqua = "\x1b[106m"
+def clist(input):
+    global back
+    global fore
+    global style
+    return globals()[input]

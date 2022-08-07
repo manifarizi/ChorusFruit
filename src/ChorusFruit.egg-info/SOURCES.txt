@@ -1,0 +1,11 @@
+LICENCE
+README.md
+pyproject.toml
+src/AnsiList.py
+src/ChorusFruit.py
+src/__init__.py
+src/setup.py
+src/ChorusFruit.egg-info/PKG-INFO
+src/ChorusFruit.egg-info/SOURCES.txt
+src/ChorusFruit.egg-info/dependency_links.txt
+src/ChorusFruit.egg-info/top_level.txt

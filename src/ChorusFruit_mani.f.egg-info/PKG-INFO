@@ -1,3 +1,17 @@
+Metadata-Version: 2.1
+Name: ChorusFruit-mani.f
+Version: 0.0.1
+Summary: This module is a replacement for curses module
+Author-email: Example Author <author@example.com>
+Project-URL: Homepage, https://github.com/manifarizi/ChorusFruit
+Project-URL: Bug Tracker, https://github.com/manifarizi/ChorusFruit/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
 **This module is in alpha test!**
 hi my name is mani, and i want to show you what you can do with 'ChorusFruit' python module
 ***This module is a replacement for curses module***
@@ -26,7 +40,7 @@ def main(self)
     #Outputing on Screen with Y of 0 and x of 0
     self.write(0, 0, 'Hello World!')
     #That means in First Line and First Column Type 'Hello World!'
-main(ChorusFruit.screen())
+ChorusFruit.RunDef(main)
 #This Line Runs the Code
 ```
 If You Want to print in Last Line you can 
@@ -48,7 +62,7 @@ def main(self):
     while True:
         self.boxborder('┌─┐││└─┘')
         self.reset()
-main(ChorusFruit.screen())
+ChorusFruit.RunDef(main)
 #This Code is Working Fine
 ```
 ```text
@@ -67,7 +81,7 @@ For crating a box you can
 import ChorusFruit
 def main(self):
         self.box(0, 1, 10, 10, '┌─┐││└─┘')
-main(ChorusFruit.screen())
+ChorusFruit.RunDef(main)
 ```
 This Code Returns this
 ```text
@@ -81,14 +95,6 @@ This Code Returns this
 │        │
 │        │
 └────────┘
-```
-For crating a Vertical line use:
-```python
-Screen().vLine(0, 1, 5)
-```
-For crating a Horizontal line use:
-```python
-Screen().hLine(0, 1, 5)
 ```
 #####Others
 Moving UP
