@@ -5,24 +5,25 @@ from msvcrt import getche, getch
 import sys
 import os
 import AnsiList
-def cols_and_lines():
-    """
-    Used For Reset
-    """
-    global COLS
-    global LINES
-    COLS = os.get_terminal_size()[0] - 0
-    LINES = os.get_terminal_size()[1]
 class Screen(object):
     """
     The main Class
     """
-    def reset(self):
+    def cols_and_lines(self) -> None:
+        """
+        Used For Reset
+        """
+        global COLS
+        global LINES
+        COLS = os.get_terminal_size()[0] - 0
+        LINES = os.get_terminal_size()[1]
+
+    def reset(self) -> None:
         """
         Clear screen and Reset variables(COLS and LINES)
         """
         self.clear()
-        cols_and_lines()
+        self.cols_and_lines()
     def make_color(self, text) -> None:
         """
         makes a text colorful
