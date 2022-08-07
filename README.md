@@ -1,14 +1,14 @@
 **This module is in alpha test!**
 hi my name is mani, and i want to show you what you can do with 'ChorusFruit' python module
 ***This module is a replacement for curses module***
-#Tutorial:
-###Installation
+# Tutorial:
+### Installation
 ****
 you  can just `pip install` it
 or for source code You can download source code from [my Github](https:\\github.com\mani_farizi)
-###Using it
+### Using it
 ****
-#####First 'Hello World!'
+##### First 'Hello World!'
 Hello World is Very Simple
 ```python 
 #Importing module
@@ -37,7 +37,7 @@ But If you Want to print on a X and Y you can
 ```python
 self.write(X, Y, 'Hello World!')
 ```
-#####Boxes and Lines
+##### Boxes and Lines
 For crating a border around the screen you can
 ```python
 self.boxborder('┌─┐││└─┘')
@@ -90,7 +90,7 @@ For crating a Horizontal line use:
 ```python
 Screen().hLine(0, 1, 5)
 ```
-#####Others
+##### Others
 Moving UP
 ```python
 scr.UP()
@@ -107,4 +107,4 @@ writing a text with color:
 ```python
 self.write(0, 0, 'This text is RED', 'fore_red')
 ```
-##and so much More in the Future
+## and so much More in the Future
