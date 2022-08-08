@@ -10,3 +10,5 @@ def main(self):
     self.write(None, None, self.make_Style('2: This Text is [style_underline]Underline'))
 if __name__ == '__main__':
     main(Screen())
+#note:
+"""Both of this Code Work but Second Code is Easier to Read"""
