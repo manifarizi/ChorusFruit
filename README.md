@@ -134,8 +134,11 @@ Coffee().find_between('Atext123Btext', 'Atext', 'Btext')
 Gets the Config file in Working Directory and Save it in Variable "Conf"
 like:
 .Conf:
-```ruby
-str: a_string="this is a String"
+```json5
+int: Integer = 1
+str: String = "this is a String"
+bool: Boolean = true
+list: String_list = {"hi", "hello", "hii"}
 ```
 main.py:
 ```python
@@ -144,7 +147,7 @@ conf = dotconf()
 print(conf.Conf)
 ```
 output of python:
-```json
-{a_string: "this is a String"}
+```js
+{'Integer': 1, 'String': 'this is a String', 'Boolean': True, 'String_list': ['hi', 'hello', 'hii']}
 ```
 ## and so much More in the Future
