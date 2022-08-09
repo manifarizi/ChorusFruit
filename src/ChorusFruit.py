@@ -96,6 +96,11 @@ class Screen(object):
         self.write(2, LINES, Left, Style)
         self.write(COLS - len(Right), LINES, Right, Style)
         self.write((COLS / 2) - (len(Center) / 2), LINES, Center, Style)
+    def Header(self, Left: str='', Center: str='', Right: str='', Style: str='[back_gray]') -> None:
+        self.write(0, 0, ' ' * COLS, Style)
+        self.write(2, 0, Left, Style)
+        self.write(COLS - len(Right), 0, Right, Style)
+        self.write((COLS / 2) - (len(Center) / 2), 0, Center, Style)
     def Window(self, title: str = '', Winx: int=0, Winy: int=0, Center: bool=False, Box: str='┌─┐││└─┘', Style: str='[fore_red]') -> None:
         if not Winx == 0:
             scrx = Winx
