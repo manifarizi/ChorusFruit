@@ -2,6 +2,9 @@ from getch import getch
 import AnsiList
 import sys
 import os
+import requests
+import ast
+import time
 from rich.console import Console
 print = Console().print
 def ColsAndLines():
@@ -10,12 +13,12 @@ def ColsAndLines():
     COLS = os.get_terminal_size()[0] - 0
     LINES = os.get_terminal_size()[1]
 class Screen(object):
-    """Main Class"""
-    def reset(self):
+    """Main TUI Class"""
+    def reset(self) -> None:
         """Resets Screen"""
         self.clear()
         ColsAndLines()
-    def make_Style(self, text) -> None:
+    def make_Style(self, text) -> str:
         """Replace with Style"""
         all_Style_list = []
         for i in AnsiList.back_styles:
@@ -66,7 +69,7 @@ class Screen(object):
                 y += 1
                 self.DOWN()
                 self.write(x, y, self.make_Style(Style + lines[0]), flush=True)
-    def getch(self, no_echo=False) -> None:
+    def getch(self, no_echo=False) -> str:
         """Input a Character from User"""
         if no_echo == False:
             ch = getch()
@@ -107,3 +110,67 @@ class Screen(object):
             self.write((COLS / 2) - (scrx / 2) + 2, (LINES / 2) - (scry / 2), title, Style)
         elif Center:
             self.write((len(title) / 2) - 2 + (COLS / 2) - (scrx / 2) + ((scrx / 2)), (LINES / 2) - (scry / 2), title, Style)
+COLS = os.get_terminal_size()[0] - 0
+LINES = os.get_terminal_size()[1]
+class coffee(object):
+    """Main Coffee Class"""
+    def __init__(self):
+        pass
+    def time(self, type):
+        """gives You time"""
+        return time.strftime(type)
+    def start_to_end(self, list, item, times):
+        """moves one item from start of a list to end"""
+        for i in range(int(times)):
+            fi = list[item]
+            del list[item]
+            list.append(fi)
+        return list
+    def read(self, filename):
+        """Read a File"""
+        with open(filename, 'r', encoding='utf-8') as w:
+            return w.read()
+    def find_between(varname, first, last):
+        try:
+            start = varname.index(first) + len(first)
+            end = varname.index(last, start)
+            return varname[start:end]
+        except ValueError:
+            return ""
+    def get_request_text(file_url):
+        """Send a Get requeset to a website and return text of it"""
+        return requests.get(file_url).text
+    def calc(self, expression):
+        tree = ast.parse(expression, mode='eval')
+        result = eval(compile(tree, filename='', mode='eval'))
+        print(result)
+
+class dotconf:
+    """Read .conf Files with my Custom Syntax"""
+    def __init__(self):
+        self.Conf = {}
+        with open(".conf", 'r', encoding='utf-8') as w:
+            for i in w.read().split("\n"):
+                if not i == "":
+                    variable_type = i.split(": ")[0]
+                    i = ": ".join(i.split(": ")[1:len(i.split(": "))])
+                    variable_names = i.split(" = ")[0]
+                    variable_data = ' = '.join(i.split(" = ")[1:len(i.split(" = "))])
+                    if variable_type == 'str':
+                        self.Conf[variable_names] = variable_data[1:-1]
+                    elif variable_type == 'int':
+                        self.Conf[variable_names] = int(variable_data)
+                    elif variable_type == 'bool':
+                        if variable_data == 'True' or variable_data == 'true' or variable_data == 'y':
+                            self.Conf[variable_names] = True
+                        else:
+                            self.Conf[variable_names] = False
+                    elif variable_type == 'list':
+                        variable_data = variable_data[1:-1]
+                        variable_data = variable_data.split(', ')
+                        self.Conf[variable_names] = []
+                        for i in variable_data:
+                            if i[0] == "'" or i[0] == '"':
+                                self.Conf[variable_names].append(i[1:-1])
+                            else:
+                                self.Conf[variable_names].append(i)

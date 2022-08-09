@@ -7,7 +7,7 @@ hi my name is mani, and i want to show you what you can do with 'ChorusFruit' py
 first `pip install --upgrade py-getch` and then
 you can just `pip install --upgrade ChorusFruit`
 or for source code You can download source code from [my Github](https:\\github.com\mani_farizi)
-### Using it
+### TUI Screen
 ****
 ##### First 'Hello World!'
 Hello World is Very Simple
@@ -115,5 +115,36 @@ ch = self.getch()
 getting a Character without echo
 ```python
 ch = self.getch(no_echo=True)
+```
+### Coffee
+Calculate Numbers and Strings with eval but secure
+```python
+Coffee().calc('2+2')
+```
+Return a GET Request Text
+```python
+Coffee().get_request_text('https://www.example.com')
+```
+Find a String Between Two Strings
+```python
+Coffee().find_between('Atext123Btext', 'Atext', 'Btext')
+#This Code Returns '123'
+```
+### dotconf
+Gets the Config file in Working Directory and Save it in Variable "Conf"
+like:
+.Conf:
+```ruby
+str: a_string="this is a String"
+```
+main.py:
+```python
+from ChorusFruit import dotconf
+conf = dotconf()
+print(conf.Conf)
+```
+output of python:
+```json
+{a_string: "this is a String"}
 ```
 ## and so much More in the Future
