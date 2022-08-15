@@ -6,6 +6,7 @@ import requests
 import ast
 import time
 from rich.console import Console
+FirstRun = False
 print = Console().print
 def ColsAndLines():
     global COLS
@@ -13,7 +14,13 @@ def ColsAndLines():
     COLS = os.get_terminal_size()[0] - 0
     LINES = os.get_terminal_size()[1]
 class Screen(object):
+    global FirstRun
     """Main TUI Class"""
+    def __enter__(self):
+        self.__init__()
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass
     def reset(self) -> None:
         """Resets Screen"""
         self.clear()
@@ -31,10 +38,15 @@ class Screen(object):
             text = text.replace(i, AnsiList.clist(i[1:-1])) + AnsiList.style_default
         return text
     def __init__(self) -> None:
-        print(chr(27)+'')
-        print('\033c')
-        print('\x1bc')
-        self.reset()
+        global FirstRun
+        if FirstRun == False:
+            print(chr(27)+'')
+            print('\033c')
+            print('\x1bc')
+            self.reset()
+            FirstRun = True
+        ColsAndLines()
+            
 
     def write(self, y:int, x:int, string: str, Style: str=None, flush: bool=True) -> None:
         """Add text to a X and a Y"""
@@ -149,7 +161,6 @@ class coffee(object):
         tree = ast.parse(expression, mode='eval')
         result = eval(compile(tree, filename='', mode='eval'))
         print(result)
-
 class dotconf:
     """Read .conf Files with my Custom Syntax"""
     def __init__(self):
