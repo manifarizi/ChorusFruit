@@ -1,13 +1,12 @@
+"""this module is a replacement for curses"""
 from getch import getch
 import AnsiList
+import Input
 import sys
 import os
-import requests
 import ast
 import time
-from rich.console import Console
 FirstRun = False
-print = Console().print
 def ColsAndLines():
     global COLS
     global LINES
@@ -50,9 +49,9 @@ class Screen(object):
 
     def write(self, y:int, x:int, string: str, Style: str=None, flush: bool=True) -> None:
         """Add text to a X and a Y"""
-        if not Style == None:
+        if not Style is None:
             string = self.make_Style(Style + string)
-        if not y == None and not x == None:
+        if not y is None and not x is None:
             sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (x, y, string))
         else:
             sys.stdout.write("%s" % (string))
@@ -147,16 +146,13 @@ class coffee(object):
         """Read a File"""
         with open(filename, 'r', encoding='utf-8') as w:
             return w.read()
-    def find_between(varname, first, last):
+    def find_between(self, varname, first, last):
         try:
             start = varname.index(first) + len(first)
             end = varname.index(last, start)
             return varname[start:end]
         except ValueError:
             return ""
-    def get_request_text(file_url):
-        """Send a Get requeset to a website and return text of it"""
-        return requests.get(file_url).text
     def calc(self, expression):
         tree = ast.parse(expression, mode='eval')
         result = eval(compile(tree, filename='', mode='eval'))
